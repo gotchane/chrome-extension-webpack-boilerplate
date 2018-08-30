@@ -5,7 +5,8 @@ var webpack = require("webpack"),
     CleanWebpackPlugin = require("clean-webpack-plugin"),
     CopyWebpackPlugin = require("copy-webpack-plugin"),
     HtmlWebpackPlugin = require("html-webpack-plugin"),
-    WriteFilePlugin = require("write-file-webpack-plugin");
+    WriteFilePlugin = require("write-file-webpack-plugin"),
+    ChromeExtensionReloader  = require('webpack-chrome-extension-reloader');
 
 // load the secrets
 var alias = {};
@@ -83,7 +84,8 @@ var options = {
       filename: "background.html",
       chunks: ["background"]
     }),
-    new WriteFilePlugin()
+    new WriteFilePlugin(),
+    new ChromeExtensionReloader()
   ]
 };
 
